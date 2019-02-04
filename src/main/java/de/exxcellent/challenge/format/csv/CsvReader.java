@@ -1,6 +1,7 @@
 package de.exxcellent.challenge.format.csv;
 
 import de.exxcellent.challenge.format.csv.data.mapper.CsvRecordMapper;
+import de.exxcellent.challenge.format.csv.processors.CsvProcessor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.FilenameUtils;
@@ -55,6 +56,11 @@ public class CsvReader<T, U> {
                 in.close();
             }
         }
+    }
+
+
+    public U process(CsvProcessor<T, U> processor) {
+        return processor.process(getRows());
     }
 
 
