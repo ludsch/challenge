@@ -2,6 +2,7 @@ package de.exxcellent.challenge;
 
 import de.exxcellent.challenge.format.csv.CsvReader;
 import de.exxcellent.challenge.format.csv.data.definition.WeatherData;
+import de.exxcellent.challenge.format.csv.data.mapper.WeatherDataCsvRecordMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -18,6 +19,9 @@ public class TestCsvReader {
     @Nested
     @DisplayName("Parsing")
     public class Parsing {
+        @BeforeEach
+        public void createReader() {
+        }
 
     }
 }
