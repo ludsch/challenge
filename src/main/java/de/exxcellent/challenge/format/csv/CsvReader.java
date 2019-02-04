@@ -63,6 +63,10 @@ public class CsvReader<T, U> {
     private void addRow(T row) {
         rows.add(row);
     }
+
+    public CsvReader(CsvRecordMapper<T> csvRecordMapper) {
+        this.csvRecordMapper = csvRecordMapper;
+    }
 }
 
 
