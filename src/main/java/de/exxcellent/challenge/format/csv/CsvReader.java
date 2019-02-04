@@ -51,7 +51,9 @@ public class CsvReader<T, U> {
             throw e;
 
         } finally {
-            in.close();
+            if (in != null) {
+                in.close();
+            }
         }
     }
 

@@ -66,5 +66,14 @@ public class TestCsvReader {
             });
         }
 
+        @Test
+        @DisplayName("a non-csv file throws an exception")
+        public void nonCSVfileThrowsException() {
+            final String file = "/sample.txt";
+            assertThrows(InputMismatchException.class, ()-> {
+                csvReader.parse(file);
+            });
+        }
+
     }
 }
