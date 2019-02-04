@@ -57,5 +57,14 @@ public class TestCsvReader {
             });
         }
 
+        @Test
+        @DisplayName("adding null as a file throws an exception")
+        public void addingNullFileThrowsAnException() {
+            final String file = null;
+            assertThrows(NullPointerException.class, ()-> {
+                csvReader.parse(file);
+            });
+        }
+
     }
 }
