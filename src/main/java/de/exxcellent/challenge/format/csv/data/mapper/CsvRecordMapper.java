@@ -1,4 +1,4 @@
-package de.exxcellent.challenge.data.mapper;
+package de.exxcellent.challenge.format.csv.data.mapper;
 
 import java.util.Map;
 
