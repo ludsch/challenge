@@ -8,8 +8,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestCsvReader {
@@ -22,6 +24,17 @@ public class TestCsvReader {
         @BeforeEach
         public void createReader() {
             csvReader = new CsvReader<>(new WeatherDataCsvRecordMapper());
+        }
+
+        @Test
+        @DisplayName("a valid csv file with 30 rows adds 30 rows")
+        public void csvWithThirtyRowsAddsThirtyRows() throws IOException {
+            final String file = "/valid-weather-test.csv";
+            final int nExpectedRows = 30;
+
+            csvReader.parse(file);
+            int nRowsAfterParse = csvReader.getRows().size();
+            assertEquals(nExpectedRows, nRowsAfterParse);
         }
 
     }
