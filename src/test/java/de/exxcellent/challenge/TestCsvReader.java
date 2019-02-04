@@ -37,5 +37,16 @@ public class TestCsvReader {
             assertEquals(nExpectedRows, nRowsAfterParse);
         }
 
+        @Test
+        @DisplayName("an empty file adds no objects")
+        public void emptyFileAddsNoObjects() throws IOException {
+            final String file = "/empty.csv";
+
+            int nRowsBeforeParse = csvReader.getRows().size();
+            csvReader.parse(file);
+            int nRowsAfterParse = csvReader.getRows().size();
+            assertEquals(nRowsBeforeParse, nRowsAfterParse);
+        }
+
     }
 }
