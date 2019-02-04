@@ -21,6 +21,7 @@ public class TestCsvReader {
     public class Parsing {
         @BeforeEach
         public void createReader() {
+            csvReader = new CsvReader<>(new WeatherDataCsvRecordMapper());
         }
 
     }
