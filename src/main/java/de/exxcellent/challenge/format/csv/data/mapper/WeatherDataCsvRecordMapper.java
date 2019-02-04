@@ -7,6 +7,10 @@ import java.util.Map;
 public class WeatherDataCsvRecordMapper implements CsvRecordMapper<WeatherData> {
     @Override
     public WeatherData map(Map<String, String> record) {
-        return null;
+        int day = Integer.parseInt(record.get("Day"));
+        int maxTemp = Integer.parseInt(record.get("MxT"));
+        int minTemp = Integer.parseInt(record.get("MnT"));
+
+        return new WeatherData(day, maxTemp, minTemp);
     }
 }
