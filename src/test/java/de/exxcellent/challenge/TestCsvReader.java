@@ -48,5 +48,14 @@ public class TestCsvReader {
             assertEquals(nRowsBeforeParse, nRowsAfterParse);
         }
 
+        @Test
+        @DisplayName("a non-existent file throws an exception")
+        public void nonExistentFileThrowsAnException() {
+            final String file = "/hide-and-seek.csv";
+            assertThrows(NullPointerException.class, ()-> {
+                csvReader.parse(file);
+            });
+        }
+
     }
 }
